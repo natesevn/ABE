@@ -23,13 +23,14 @@ def main():
 
     # choose a random message
     msg = pairing_group.random(GT)
-   
+    
     # generate a ciphertext
     policy_str = '((ONE and THREE) and (TWO OR FOUR))'
     ctxt = cpabe.encrypt(pk, msg, policy_str)
 
     # decryption
     rec_msg = cpabe.decrypt(pk, ctxt, key)
+
     if debug:
         if rec_msg == msg:
             print ("Successful decryption.")
@@ -38,5 +39,5 @@ def main():
 
 
 if __name__ == "__main__":
-    debug = False
+    debug = True
     main()
